@@ -1,0 +1,55 @@
+
+svg {
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    width:667px;
+    height:326px;
+}
+svg, img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+}
+body {
+    background: #333;
+    text-align:center;
+    color:#ccc;
+    font-family:Brandon Grotesque, 'sans-serif';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    flex-direction: column;
+}
+
+button {
+    padding:6px;
+    font-size:22px;
+}
+.nav{
+    margin:30px;
+    font-size:18px;
+}
+
+.end{
+    display: none;
+}
+.final{
+    opacity: 0;
+}
+
+#start{
+    position: absolute;
+}
+.final image,
+.start{
+    /*position: absolute;*/
+    top: 0;
+    left: 0;
+    /*transform: translate(-50%, -50%);*/
+}

@@ -1,0 +1,72 @@
+  
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+<style>
+  body {
+    background-color:black;
+    text-align:center;
+    color: #777;
+  }
+  #bbb{opacity: 0.3}
+  #aaa{opacity: 0.3}
+  #ccc{opacity: 0.3}
+  #bbb2{opacity: 0}
+  #aaa2{opacity: 0}
+  #ccc2{opacity: 0}
+</style>
+</head>
+
+
+<body translate="no" >
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="600px" height="600px" viewBox="0 0 570 150" xml:space="preserve">
+<polygon id="aaa" fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10" points="361.699,82 405,25 448.301,82 "/>
+<polygon id="aaa2" fill="none" stroke="blue" stroke-width="2" stroke-miterlimit="10" points="361.699,82 405,25 448.301,82 "/>
+<polygon id="bbb" fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10" points="320,148 359.447,98.549 413.5,98 454.553,98.549 
+  490.979,145.898 "/>
+<polygon id="bbb2" fill="none" stroke="blue" stroke-width="2" stroke-miterlimit="10" points="320,148 359.447,98.549 413.5,98 454.553,98.549 
+  490.979,145.898 "/>
+<polygon id="ccc" fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10" points="254,238 312,167.289 500,167.289 561,238 "/>
+<polygon id="ccc2" fill="none" stroke="blue" stroke-width="2" stroke-miterlimit="10" points="254,238 312,167.289 500,167.289 561,238 "/>
+</svg>
+
+<script src='js/TweenMax.min.js'></script>
+<script src='js/DrawSVGPlugin.min.js'></script>
+<script src='js/jquery.min.js'></script>
+
+<script>
+
+var star1 = $('#aaa'), 
+    star2 = $('#bbb'),
+    star3 = $('#ccc'),
+    star11 = $('#aaa2'), 
+    star22 = $('#bbb2'),
+    star33 = $('#ccc2')
+    container = $('#Layer_1')
+
+tl = new TimelineMax({})
+tl.set(container, {position:'absolute',left:'40%',xPercent:-50,top:'40%',yPercent:-50})
+  
+
+tl1 = new TimelineMax({repeat:-1,delay:1})
+tl1.fromTo(star11, 0.7, {drawSVG: '100% 100%'}, {opacity:1, drawSVG: '100% 0%'})
+   .fromTo(star22, 0.5, {drawSVG: '100% 100%'}, {opacity:1, drawSVG: '100% 0%'}, '+=0.5')
+   .fromTo(star33, 0.5, {drawSVG: '100% 100%'}, {opacity:1, drawSVG: '100% 0%'}, '+=1')
+   .fromTo(star11, 0.7, {drawSVG: '100% 0%'}, {opacity:1, drawSVG: '100% 100%'},'+=1')
+   .fromTo(star22, 0.5, {drawSVG: '100% 0%'}, {opacity:1, drawSVG: '100% 100%'}, '+=0.5')
+   .fromTo(star33, 0.5, {drawSVG: '100% 0%'}, {opacity:1, drawSVG: '100% 100%'}, '+=1')
+
+
+
+
+
+</script>
+
+ 
+</body>
+</html>
+ 

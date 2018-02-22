@@ -1,0 +1,158 @@
+  
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+<style>
+  body {
+    background-color:black;
+    text-align:center;
+    color: #000;
+  }
+.text{color: #fff;font-size: 20px;position: absolute;
+    top: 60px;
+    left: 60px;
+    cursor: pointer;
+    width: 128px;height: 48px;
+    text-align: center;
+    line-height: 55px;
+  }
+.text2{color: #fff;font-size: 20px;position: absolute;
+    top: 60px;
+    left: 410px;
+    cursor: pointer;
+    width: 128px;height: 48px;
+    text-align: center;
+    line-height: 55px;
+  }
+
+
+
+
+
+
+
+.svg-wrapper {
+  margin-top: 0;
+  position: relative;
+  width: 150px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 5px
+}
+
+#shape {
+  stroke-width: 6px;
+  fill: transparent;
+  stroke: #009FFD;
+  stroke-dasharray: 85 400;
+  stroke-dashoffset: -220;
+  transition: 1s all ease;
+}
+#text {
+  margin-top: -35px;
+  text-align: center;
+}
+
+#text a {
+  color: white;
+  text-decoration: none;
+  font-weight: 100;
+  font-size: 1.1em;
+}
+
+.svg-wrapper:hover #shape {
+  stroke-dasharray: 100 0;
+  stroke-width: 3px;
+  stroke-dashoffset: 0;
+  stroke: #06D6A0;
+}
+
+</style>
+</head>
+
+
+<body translate="no" >
+<svg version="1.1" id="container" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="850.39px" height="841.89px" viewBox="0 0 850.39 841.89" enable-background="new 0 0 850.39 841.89" xml:space="preserve">
+<rect id="aaa" x="10" y="10" fill="#000" stroke="#06D6A0" stroke-width="3" stroke-miterlimit="10" width="130" height="50"/>
+<rect id="aaa2" x="10" y="10" fill="none" stroke="#00A0E9" stroke-miterlimit="10" width="130" height="50"/>
+
+<rect id="bbb" x="360" y="10" fill="#000" stroke="#fff" stroke-width="3" stroke-miterlimit="10" width="130" height="50"/>
+<rect id="bbb2" x="360" y="10" fill="none" stroke="#00A0E9" stroke-width="3" opacity="0.5" stroke-miterlimit="10" width="130" height="50"/>
+
+</svg>
+
+<div class="text">鼠标移入</div>
+<div class="text2">鼠标移入</div>
+    <!--start button, nothing above this is necessary -->
+    <div class="svg-wrapper">
+      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+        <rect id="shape" height="40" width="150" />
+        <div id="text">
+          <a href=""><span class="spot"></span>Button 1</a>
+        </div>
+      </svg>
+    </div>
+<script src='js/TweenMax.min.js'></script>
+<script src='js/DrawSVGPlugin.min.js'></script>
+<script src='js/jquery.min.js'></script>
+
+<script>
+
+var aaa = $('#aaa'), 
+    container = $('#container'),
+    bbb = $('#bbb'),
+    circle = $('#circle')
+
+
+
+// $(document).ready(function(){
+tl = new TimelineMax({})
+tl.set(container, {position:'absolute',left:'50px',top:'50px'})
+tl.set(aaa, {opacity:0})  
+tl.set(bbb, {opacity:0})  
+
+// }); 
+
+
+
+
+
+
+$('.text').on('mouseover', function(){
+    tl2 = new TimelineMax({}) 
+    tl2.fromTo(aaa, 0.5, {drawSVG: '100% 100%'}, {opacity:1, drawSVG: '100% 0%'})
+})
+$('.text').on('mouseout', function(){
+    tl2 = new TimelineMax({})
+    tl2.fromTo(aaa, 0.5, {opacity:1, drawSVG: '100% 0%'}, {drawSVG: '0% 0%'})
+})
+
+tl1 = new TimelineMax({repeat:-1}) 
+tl1.fromTo(bbb, 0.7, {drawSVG: '100% 90%'}, {opacity:1, drawSVG: '10% 0%'})
+tl1.fromTo(bbb, 0.1, {drawSVG: '10% 0%'}, {opacity:1, drawSVG: '0% 0%'})
+tl1.pause(0);
+$('.text2').on('mouseover', function(){
+    tl1.restart();
+})
+$('.text2').on('mouseout', function(){
+    tl1.pause(0);
+})
+
+$('#circle').on('mouseover', function(){
+    cr = new TimelineMax({}) 
+    cr.fromTo(circle, 2, {scale:0}, {scale:1})
+})
+
+
+</script>
+
+ 
+</body>
+</html>
+ 

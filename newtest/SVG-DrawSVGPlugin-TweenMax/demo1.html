@@ -1,0 +1,53 @@
+  
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+<style>
+  body {
+    background-color:black;
+    text-align:center;
+    color: #777;
+  }
+  #bbb{opacity: 0.2}
+  #aaa{opacity: 0}
+</style>
+</head>
+
+
+<body translate="no" >
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="1000px" height="400px" viewBox="0 0 570 150" xml:space="preserve">
+<!--   <polygon fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="4" points="140.178,171.164 239,0 337.822,171.164 "/> -->
+  <polygon id = "bbb" fill="none" stroke="#F8F8F8" stroke-miterlimit="10" stroke-width="4" points="195,172 204.821,110.872 160.033,68.128 221.203,58.579 
+  248.015,2.774 276,58 337.359,66.255 293.484,109.936 304.593,170.842 249.492,142.613 "/>
+  <polygon id = "aaa" fill="none" stroke="#0D5DE8" stroke-miterlimit="10" stroke-width="4" points="195,172 204.821,110.872 160.033,68.128 221.203,58.579 
+  248.015,2.774 276,58 337.359,66.255 293.484,109.936 304.593,170.842 249.492,142.613 "/>
+</svg>
+
+<script src='js/TweenMax.min.js'></script>
+<script src='js/DrawSVGPlugin.min.js'></script>
+<script src='js/jquery.min.js'></script>
+
+<script>
+
+var star1 = $('#aaa'), 
+    star2 = $('#bbb'),
+    stars = $('#aaa, #bbb'),
+tl = new TimelineMax({})
+tl.fromTo(star1, 0.5, {drawSVG: '100% 100%'}, {opacity:1, drawSVG: '90% 100%'}, '+=0.1')
+  .to(star1, 1.5, { drawSVG: '0% 10%'})
+  .to(star1, 1, { drawSVG: '100% 0%',strokeWidth: 4})
+  .to(stars, 1, {rotation: 360, stroke:'yellow',scale: 0.5,strokeWidth: 6,transformOrigin: '50% 50%'})
+  .to(star1, 0.5, {x:100})
+  .to(star2, 0.5, {opacity:1})
+  .to(star2, 0.5, {x:100},'+=0.5')
+  .to(stars, 0.5,{scale:0,opacity:0});
+</script>
+
+ 
+</body>
+</html>
+ 
